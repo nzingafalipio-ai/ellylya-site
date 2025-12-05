@@ -133,26 +133,39 @@
         }
         
         /* Header */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: var(--transition);
-            padding: 0;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-        }
-
         .logo {
             display: flex;
             align-items: center;
+            gap: 10px;
+        }
+
+        /* Hide raster/svg image in header so typographic logo matches provided screenshot */
+        .logo-img {
+            display: none;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 900;
+            color: #8b0000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-right: 6px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .logo-tagline {
+            font-size: 0.78rem;
+            color: #8b0000;
+            background: rgba(245, 240, 240, 0.95);
+            padding: 6px 10px;
+            border-radius: 10px;
+            box-shadow: none;
+            margin-left: 0;
+            border: 1px solid rgba(139,0,0,0.06);
+            font-weight: 700;
+        }
         }
 
         .logo-text {
@@ -163,6 +176,13 @@
             letter-spacing: 1px;
         }
 
+        .logo-img {
+            height: 48px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 6px;
+            display: inline-block;
+        }
         .logo-tagline {
             font-size: 0.75rem;
             color: var(--gray);
@@ -174,6 +194,7 @@
         nav ul {
             display: flex;
             list-style: none;
+            margin-left: 18px;
         }
 
         nav ul li {
@@ -1086,7 +1107,16 @@
     <header id="header">
         <div class="container">
             <div class="header-container">
-                <!-- logo removed per request -->
+                <!-- logo (se imagem em static/img/logo.png existir, será usada; caso contrário mostra texto) -->
+                <div class="logo">
+                    <a href="#home" style="display:flex;align-items:center;text-decoration:none;color:inherit;">
+                        <img src="static/img/logo.svg" alt="Ellylya | 100% Fresca" class="logo-img" onerror="this.style.display='none'">
+                        <div>
+                            <div class="logo-text">Ellylya</div>
+                            <div class="logo-tagline">100% Fresca</div>
+                        </div>
+                    </a>
+                </div>
                 
                 <nav>
                     <ul>
@@ -1140,7 +1170,7 @@
                     <div class="slogan-card">
                         <div class="slogan-icon"><i class="fas fa-award"></i></div>
                         <h3>Qualidade Premium</h3>
-                        <p>Selecionamos os melhores cortes para garantir sabor e textura excepcionais. Frescura que se vê, qualidade que se sente em cada pedaço.</p>
+                        <p>Seleccionamos os melhores cortes para garantir sabor e textura excepcionais. Frescura que se vê, qualidade que se sente em cada pedaço.</p>
                     </div>
                     <div class="slogan-card">
                         <div class="slogan-icon"><i class="fas fa-shipping-fast"></i></div>
@@ -1164,12 +1194,12 @@
                         <div class="product-overlay">
                             <div>
                                 <h3>Carne Bovina</h3>
-                                <p>Cortes selecionados</p>
+                                <p>Cortes seleccionados</p>
                             </div>
                         </div>
                     </div>
                     <div class="product-info">
-                        <p>Cortes selecionados de alta qualidade, incluindo picanha, contrafilé, alcatra, costela e muito mais. Carne suculenta com marmoreio perfeito.</p>
+                        <p>Cortes seleccionados de alta qualidade, incluindo picanha, contrafilé, alcatra, costela e muito mais. Carne suculenta com marmoreio perfeito.</p>
                         <div class="product-price">A partir de 2.500 Kz/kg</div>
                         <a href="#order" class="btn">Encomendar</a>
                     </div>
@@ -1422,7 +1452,7 @@
                 </div>
                 <div class="about-text">
                     <h2 class="section-title">Sobre Ellylya</h2>
-                    <p>O talho Ellylya é especializada em fornecer carnes 100% frescas e de alta qualidade para os nossos clientes. Com anos de experiência no setor, garantimos produtos selecionados que atendem aos mais altos padrões de qualidade.</p>
+                    <p>O talho Ellylya é especializado em fornecer carnes 100% frescas e de alta qualidade para os nossos clientes. Com anos de experiência no setor, garantimos produtos selecionados que atendem aos mais altos padrões de qualidade.</p>
                     <p>Nossa missão é oferecer a melhor experiência gastronômica através de produtos frescos, saborosos e nutritivos, sempre com o compromisso de satisfazer as necessidades dos nossos clientes com <span class="slogan-highlight">o corte certo, ao preço certo</span>.</p>
                     <p>Trabalhamos com fornecedores locais para garantir a frescura e qualidade dos nossos produtos, apoiando também a economia local.</p>
                     
